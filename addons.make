@@ -1,0 +1,6 @@
+ofxOsc
+ofxFlowTools
+ofxFluid
+ofxPostProcessing
+ofxSecondWindow
+ofxUI
