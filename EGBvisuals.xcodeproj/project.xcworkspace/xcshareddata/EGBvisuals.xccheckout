@@ -24,9 +24,9 @@
 		<key>61BE9A205A1562CC93C96489D28014C4FB7FBCD7</key>
 		<string>../..</string>
 		<key>7E804D925461714118DB355C65BC964B41D94376</key>
-		<string>../../../../../addons/ofxUI</string>
+		<string>../../../addons/ofxUI</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
-		<string>../../../../../addons/ofxPostProcessing</string>
+		<string>../../../addons/ofxPostProcessing</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mohithingorani/EGB.git</string>

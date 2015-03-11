@@ -1,80 +1,110 @@
 #include "ofApp.h"
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 
     ofEnableAlphaBlending();
     ofSetLogLevel(OF_LOG_VERBOSE);
     
+    int projectorWidth = 1280, projectorHeight = 800;
+    
+    // setup secondary window for projection, primary for gui
     projector.setup("Projector", 0, 0, projectorWidth, projectorHeight, false);
     
-    fluid.allocate(projectorWidth, projectorHeight, 0.30);
-    fluid.dissipation = 0.99;
-    fluid.velocityDissipation = 0.99;
-
+  
+    // setup blend shader
+    blendfx = new BlendShader();
+    blendfx->allocate(projectorWidth, projectorHeight);
     
+    
+    // load sandbox shader
+    sandbox = new ofxFXObject();
+    loadSandboxShader("test.frag");
+    
+    scene = new SceneTest();
+    scene1 = new Scene1();
+    
+    
+    //
+    // Init GUI
+    //
     gui1 = new ofxUISuperCanvas("PANEL 1: Switch Videos");
     gui1->setPosition(0, 0);
     gui1->setHeight(600);
     gui1->setName("Switch");
     gui1->addLabel("Toggle Videos");
     gui1->addSpacer();
-    
-
-
+    gui1->addSlider("blendfx.blend", 0.0f, 1.0f, &blendfx->blend);
     
     
     
-    gui2 = new ofxUISuperCanvas("PANEL 2: Fluid");
-    gui2->setPosition(200, 0);
-    gui2->setHeight(600);
-    gui2->setName("Fluid");
-    gui2->addLabel("Permanent Forces");
-    gui2->addSpacer();
-    gui2->addSlider("fluid.dissipation", 0.0f, 1.0f, &fluid.dissipation);
-    gui2->addSlider("fluid.velocityDissipation", 0.0f, 1.0f, &fluid.velocityDissipation);
-    
-    gui2->addSlider("gravity X", -2, 2, &gravity.x);
-    gui2->addSlider("gravity Y", -2, 2, &gravity.y);
-    
-    gui2->addLabel("Temporal Forces");
-    gui2->addSpacer();
-    gui2->addSlider("mouseSensitivity", 0, 100, &mouseSensitivity);
-    gui2->addSlider("mouseRadius", 0, 10, &mouseRadius);
-
-    
-    
-    
-    gui2->setWidgetColor(OFX_UI_WIDGET_COLOR_FILL, ofColor(64,128,192,200));
-    gui2->setWidgetColor(OFX_UI_WIDGET_COLOR_FILL_HIGHLIGHT, ofColor(0,128,128, 200));
-    
-    
-    
-    
-    video.loadMovie( "kolor-fighter-aircraft-4k.mp4" ); //Load the video file    
-    video.play(); //Start the video to play
-    videoWidth =  video.getWidth();
-    videoHeight = video.getHeight();
-    //videoPixels 	= new unsigned char[videoWidth*videoHeight *3];
-    //videoTexture.allocate(videoWidth,videoHeight, GL_RGB);
-
-    
-
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    
+    scene->update();
+    scene1->update();
+    blendfx->setTexture(scene->getTextureReference(), 0);
+    blendfx->setTexture(scene1->getTextureReference(), 1);
+    blendfx->update();
+    
+    
+//    video.update();
+    
+//    sandbox.begin();
+//    ofClear(255, 255);
+//    sandbox.draw();
+//    ofSetColor(0,255);
+//    ofCircle(mouseX, mouseY, 5);
+//    sandbox.end();
+    
+//    glow.setRadius(sin(beat)*15);
+//    glow << video.getTextureReference();
+//    glow.update();
+    
+//    sandbox.update();
+//    beat += (1.0/ofGetFrameRate())*2;
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+//    video.draw(0,0);
+    projector.begin();
+//    ofClear(0);
+//    ofScale(0.1,0.1);
+    blendfx->draw();
+//    glow.draw();
+//    sandbox.draw();
+    projector.end();
+//    ofSetColor(255,255,255);
+    
+//    sandbox.draw();
+    
+}
 
+void ofApp::loadSandboxShader(const char* path){
+    
+    sandbox->allocate(projectorWidth, projectorHeight);
+    sandbox->setPasses(1);
+   
+//    sandbox.load(std::string(path));
+    ofBuffer buffer = ofBufferFromFile(path);
+    sandbox->setCode(buffer.getText());
+//    sandbox.setTexture(video.getTextureReference());
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if( key == ' '){
+//        if(!video.isPlaying()) video.play();
+//        else video.stop();
+    } else if( key == 'r'){
+        loadSandboxShader("test.frag");
+    }
 }
 
 //--------------------------------------------------------------
