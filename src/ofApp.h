@@ -10,11 +10,12 @@
 #include "ofxFXObject.h"
 #include "BlendShader.h"
 
-#include "Scene.h"
+#include "SceneGraph.h"
+//#include "Scene.h"
 #include "Scene1.h"
 #include "SceneTest.h"
 
-
+#include <vector>
 
 
 class ofApp : public ofBaseApp{
@@ -43,9 +44,14 @@ public:
     ofxFXObject *sandbox;
     BlendShader *blendfx;
     
+//    std::vector<Scene *> scenes;
     
     Scene *scene;
     Scene *scene1;
+    
+    Black *black;
+    ThroneRoom *throneRoom;
+    CharlesRoom *charlesRoom;
     
     ofxUICanvas *gui1,*gui2,*gui3;
     

@@ -211,6 +211,20 @@
 		3B361208CD4107E479F04E7B /* NetworkingUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtils.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/posix/NetworkingUtils.cpp; sourceTree = SOURCE_ROOT; };
 		3C39EA8CB1911093FD56F9ED /* HorizontalTiltShifPass.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = HorizontalTiltShifPass.h; path = ../../../addons/ofxPostProcessing/src/HorizontalTiltShifPass.h; sourceTree = SOURCE_ROOT; };
 		3C9066FB257B904A547019ED /* ofxUIDragableLabelButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIDragableLabelButton.h; path = ../../../addons/ofxUI/src/ofxUIDragableLabelButton.h; sourceTree = SOURCE_ROOT; };
+		3D040C4B1AB9038B000DE472 /* ThroneRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThroneRoom.h; sourceTree = "<group>"; };
+		3D040C4D1AB903C7000DE472 /* CharlesRoom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharlesRoom.h; sourceTree = "<group>"; };
+		3D040C4E1AB904FE000DE472 /* SceneGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneGraph.h; sourceTree = "<group>"; };
+		3D040C4F1AB908FF000DE472 /* Courtyard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Courtyard.h; sourceTree = "<group>"; };
+		3D040C501AB9091D000DE472 /* VillageSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VillageSquare.h; sourceTree = "<group>"; };
+		3D040C511AB90934000DE472 /* RockyCoastline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RockyCoastline.h; sourceTree = "<group>"; };
+		3D040C521AB90950000DE472 /* BraveCave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BraveCave.h; sourceTree = "<group>"; };
+		3D040C531AB90984000DE472 /* DockAcension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAcension.h; sourceTree = "<group>"; };
+		3D040C541AB90A1D000DE472 /* Scene14aPalace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene14aPalace.h; sourceTree = "<group>"; };
+		3D040C551AB90A66000DE472 /* Scene14dJungleCassowaryShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene14dJungleCassowaryShadow.h; sourceTree = "<group>"; };
+		3D040C561AB90AAF000DE472 /* CassowaryNest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CassowaryNest.h; sourceTree = "<group>"; };
+		3D040C571AB90AF8000DE472 /* BeachSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachSunset.h; sourceTree = "<group>"; };
+		3D040C581AB90B0A000DE472 /* JungleEdge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JungleEdge.h; sourceTree = "<group>"; };
+		3D040C591AB90BA5000DE472 /* Black.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Black.h; sourceTree = "<group>"; };
 		3D47482A1AAD41CA0046D8E0 /* test.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = test.frag; path = bin/data/test.frag; sourceTree = "<group>"; };
 		3D47482D1AAD63680046D8E0 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		3D47482E1AAD63830046D8E0 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -574,6 +588,26 @@
 				B42CD7B8F98140BEC49B9DC4 /* ftVelocityFieldShader.h */,
 			);
 			name = visualisation;
+			sourceTree = "<group>";
+		};
+		3D040C4C1AB903A2000DE472 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3D040C4B1AB9038B000DE472 /* ThroneRoom.h */,
+				3D040C4D1AB903C7000DE472 /* CharlesRoom.h */,
+				3D040C4F1AB908FF000DE472 /* Courtyard.h */,
+				3D040C501AB9091D000DE472 /* VillageSquare.h */,
+				3D040C511AB90934000DE472 /* RockyCoastline.h */,
+				3D040C521AB90950000DE472 /* BraveCave.h */,
+				3D040C531AB90984000DE472 /* DockAcension.h */,
+				3D040C541AB90A1D000DE472 /* Scene14aPalace.h */,
+				3D040C551AB90A66000DE472 /* Scene14dJungleCassowaryShadow.h */,
+				3D040C561AB90AAF000DE472 /* CassowaryNest.h */,
+				3D040C571AB90AF8000DE472 /* BeachSunset.h */,
+				3D040C581AB90B0A000DE472 /* JungleEdge.h */,
+				3D040C591AB90BA5000DE472 /* Black.h */,
+			);
+			name = scenes;
 			sourceTree = "<group>";
 		};
 		409F4945999998D29A65827E /* opticalflow */ = {
@@ -1068,9 +1102,11 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				3D040C4C1AB903A2000DE472 /* scenes */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				3D040C4E1AB904FE000DE472 /* SceneGraph.h */,
 				3D47482D1AAD63680046D8E0 /* Scene.h */,
 				3D47482E1AAD63830046D8E0 /* Scene.cpp */,
 				3D4748301AAD72F20046D8E0 /* SceneTest.h */,

@@ -34,7 +34,7 @@ struct SceneTest : Scene {
     }
     
     void draw(){
-        maskpass.draw();
+        maskpass.draw(0,0,width,height);
 //        video.draw(0,0);
     }
     

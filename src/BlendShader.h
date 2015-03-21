@@ -35,7 +35,7 @@ public:
                                        
                                        gl_FragColor = pix0 + pix1;
                                    }
-                                   );
+                                );
     }
     
 protected:

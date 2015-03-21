@@ -21,12 +21,13 @@ struct Scene {
     
     
     
-    Scene(){}
+    Scene() : active(false) {}
     virtual void update(){}
     virtual void draw(){}
     virtual ofTexture& getTextureReference() = 0;
     ~Scene(){}
     
+    bool active; 
     float time;
     
 };

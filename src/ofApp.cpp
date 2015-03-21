@@ -25,6 +25,12 @@ void ofApp::setup(){
     scene = new SceneTest();
     scene1 = new Scene1();
     
+    black = new Black();
+
+    throneRoom = new ThroneRoom();
+    charlesRoom = new CharlesRoom();
+    
+//    scenes.push_back(throneRoom);
     
     //
     // Init GUI
@@ -44,11 +50,13 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    scene->update();
-    scene1->update();
-    blendfx->setTexture(scene->getTextureReference(), 0);
-    blendfx->setTexture(scene1->getTextureReference(), 1);
-    blendfx->update();
+//    scene->update();
+//    scene1->update();
+    throneRoom->update();
+    charlesRoom->update();
+//    blendfx->setTexture(black->getTextureReference(), 0);
+//    blendfx->setTexture(throneRoom->getTextureReference(), 1);
+//    blendfx->update();
     
     
 //    video.update();
@@ -73,9 +81,14 @@ void ofApp::update(){
 void ofApp::draw(){
 //    video.draw(0,0);
     projector.begin();
-//    ofClear(0);
+    ofClear(0);
 //    ofScale(0.1,0.1);
-    blendfx->draw();
+//    blendfx->draw();
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+    ofSetColor(255,255,255,blendfx->blend*255);
+//    throneRoom->draw();
+    ofSetColor(255,255,255,(1.0-blendfx->blend)*255);
+    charlesRoom->draw();
 //    glow.draw();
 //    sandbox.draw();
     projector.end();
