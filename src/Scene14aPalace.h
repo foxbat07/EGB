@@ -12,5 +12,32 @@
 
 //14a (64) is a street just outside the palace walls.  Siddington will stand at a podium with a small EGB flag on it.  I like your idea of an EGB flag for an image here.
 
+struct Palace : Scene {
+    
+    ofImage image;
+    
+    
+    Palace(){
+        image.loadImage("images/marble.jpg");
+        scale = 0.5;
+    }
+    virtual void update(){
+        image.update();
+    }
+    
+    virtual void draw(){
+        ofPushMatrix();
+        ofTranslate(x,y);
+        ofRotate(rotate);
+        ofScale(scale,scale);
+        ofSetColor(255,255,255,alpha*255);
+        image.draw(0,0);
+        ofPopMatrix();
+    }
+    
+    ofTexture& getTextureReference(){
+        return image.getTextureReference();
+    }
+};
 
 #endif

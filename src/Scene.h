@@ -19,16 +19,20 @@ struct Scene {
     static int width;
     static int height;
     
-    
-    
     Scene() : active(false) {}
     virtual void update(){}
     virtual void draw(){}
-    virtual ofTexture& getTextureReference() = 0;
+    virtual void activate(){ active = true; }
+    virtual void deactivate(){ active = false; }
+    virtual ofTexture& getTextureReference(){ ofTexture t; return t; } // hack
     ~Scene(){}
     
-    bool active; 
+    bool active;
+    float alpha;
     float time;
+    
+    float x=0, y=0;
+    float scale=1, rotate=0;
     
 };
 

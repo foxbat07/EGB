@@ -4,6 +4,7 @@
 
 #include "ofxSecondWindow.h"
 #include "ofxUI.h"
+#include "ofxOsc.h"
 
 #include "FluidStuff.h"
 
@@ -35,6 +36,8 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+    void guiEvent(ofxUIEventArgs &e);
+
     void loadSandboxShader(const char *path);
     
     
@@ -44,7 +47,7 @@ public:
     ofxFXObject *sandbox;
     BlendShader *blendfx;
     
-//    std::vector<Scene *> scenes;
+    SceneGraph *sceneGraph;
     
     Scene *scene;
     Scene *scene1;
@@ -54,5 +57,6 @@ public:
     CharlesRoom *charlesRoom;
     
     ofxUICanvas *gui1,*gui2,*gui3;
+    ofxOscReceiver receiver;
     
 };

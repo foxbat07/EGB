@@ -17,28 +17,24 @@
 struct ThroneRoom : Scene {
     
     ofImage image;
-//    ofImage mask;
-//    ofVideoPlayer video;
-//    ofxMask maskpass;
+
     
     ThroneRoom(){
         image.loadImage("images/marble.jpg");
-//                video.loadMovie( "/Users/fishuyo/Movies/trees/trees.mov" );
-//                video.play();
-//                maskpass.allocate(width,height);
+        scale = 0.5;
     }
     virtual void update(){
         image.update();
-        //        video.update();
-        //        maskpass.setTexture(mask.getTextureReference(), 0);
-        //        maskpass.setTexture(video.getTextureReference(),1);
-        //        maskpass.update();
     }
     
     virtual void draw(){
-        image.draw(0,0); //0,0,width,height);
-        //        maskpass.draw();
-        //        video.draw(0,0);
+        ofPushMatrix();
+        ofTranslate(x,y);
+        ofRotate(rotate);
+        ofScale(scale,scale);
+        ofSetColor(255,255,255,alpha*255);
+        image.draw(0,0);
+        ofPopMatrix();
     }
     
     ofTexture& getTextureReference(){

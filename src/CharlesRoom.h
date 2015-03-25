@@ -15,20 +15,27 @@
 
 struct CharlesRoom : Scene {
     
-    ofImage image;
+    ofImage wall, window;
     ofImage mask;
     ofVideoPlayer video;
     ofxMask maskpass;
     
     CharlesRoom(){
-        image.loadImage("images/marble.jpg");
-//        video.loadMovie( "video/fullmoon.avi" );
-        video.loadMovie( "/Users/fishuyo/Movies/trees/trees.mov" );
+        video.loadMovie( "video/moon.mp4" );
+        video.setVolume(0);
+    }
+    
+    virtual void activate(){
+        video.firstFrame();
         video.play();
-        //                maskpass.allocate(width,height);
+        active = true;
+    }
+    virtual void deactivate(){
+        video.stop();
+        active = false;
     }
     virtual void update(){
-        image.update();
+//        window.update();
         video.update();
         //        maskpass.setTexture(mask.getTextureReference(), 0);
         //        maskpass.setTexture(video.getTextureReference(),1);
@@ -36,16 +43,21 @@ struct CharlesRoom : Scene {
     }
     
     virtual void draw(){
-//        ofEnableBlendMode(OF_BLENDMODE_ADD);
-//        image.draw(0,0); //0,0,width,height);
-        //        maskpass.draw();
+        ofPushMatrix();
+        ofTranslate(x,y);
+        ofRotate(rotate);
+        ofScale(scale,scale);
+//        window.draw(x,y);
+//        maskpass.draw();
         
-//        ofSetColor(255,255,255,255);
+        
+        ofSetColor(255,255,255,alpha*255);
         video.draw(0,0);
+        ofPopMatrix();
     }
     
     ofTexture& getTextureReference(){
-        return image.getTextureReference();
+        return window.getTextureReference();
     }
 };
 

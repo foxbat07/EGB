@@ -30,19 +30,19 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2A03CE0CF301C466938025B767254CAAC3CB8DB0</key>
-		<string>../../../../../addons/ofxFlowTools</string>
+		<string>../../../addons/ofxFlowTools</string>
 		<key>61BE9A205A1562CC93C96489D28014C4FB7FBCD7</key>
 		<string>../..</string>
 		<key>7C37DBD915DC970C445B9C7545F7D25E8DF3D2BD</key>
-		<string>../../../../../addons/ofxFluid</string>
+		<string>../../../addons/ofxFluid</string>
 		<key>7E804D925461714118DB355C65BC964B41D94376</key>
 		<string>../../../addons/ofxUI</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
 		<string>../../../addons/ofxPostProcessing</string>
 		<key>B7CCA6A8C889ED4C803FBF307564FD139754E943</key>
-		<string>../../../../../addons/ofxFX</string>
+		<string>../../../addons/ofxFX</string>
 		<key>FE87873B02C5E6719395DDAC8C0C0C585EF1FA8F</key>
-		<string>../../../../../addons/ofxSecondWindow</string>
+		<string>../../../addons/ofxSecondWindow</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mohithingorani/EGB.git</string>
