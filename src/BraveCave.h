@@ -11,15 +11,23 @@
 
 #include "Scene.h"
 
-#include "ofxMask.h"
+#include "BrightnessShader.h"
+#include "ofxGlow.h"
+#include "ofxBloom.h"
+#include "ofxBlur.h"
 
 struct BraveCave : Scene {
     
     ofVideoPlayer video;
+    
+    BrightnessShader bright;
+    ofxGlow glow;
 
     BraveCave(){
         video.loadMovie( "video/bravecave.MOV" );
         video.play();
+        bright.allocate(width,height);
+        glow.allocate(width,height);
     }
     virtual void activate(){
         video.firstFrame();
@@ -31,7 +39,15 @@ struct BraveCave : Scene {
         active = false;
     }
     virtual void update(){
+
+        bright.brightness = brightness;
+        bright.r = r;
+        bright.g = g;
+        bright.b = b;
+        (bright << video);
         video.update();
+        bright.update();
+//      glow.update();
     }
     
     virtual void draw(){
@@ -40,7 +56,9 @@ struct BraveCave : Scene {
         ofRotate(rotate);
         ofScale(scale,scale);
         ofSetColor(255,255,255,alpha*255);
-        video.draw(0,0);
+//        video.draw(0,0);
+        bright.draw();
+//        glow.draw();
         ofPopMatrix();
     }
     

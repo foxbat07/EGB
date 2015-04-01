@@ -37,9 +37,9 @@ struct ThroneRoom : Scene {
         ofPopMatrix();
     }
     
-    ofTexture& getTextureReference(){
-        return image.getTextureReference();
-    }
+//    ofTexture& getTextureReference(){
+//        return image.getTextureReference();
+//    }
 };
 
 

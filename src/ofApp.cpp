@@ -7,7 +7,7 @@ void ofApp::setup(){
     ofEnableAlphaBlending();
     ofSetLogLevel(OF_LOG_VERBOSE);
     
-    int projectorWidth = 1280, projectorHeight = 800;
+    int projectorWidth = 1024, projectorHeight = 768;
     
     // setup secondary window for projection, primary for gui
     projector.setup("Projector", 0, 0, projectorWidth, projectorHeight, false);
@@ -39,7 +39,7 @@ void ofApp::setup(){
     //
     gui1 = new ofxUISuperCanvas("PANEL 1: Switch Videos");
     gui1->setPosition(0, 0);
-    gui1->setHeight(600);
+    gui1->setHeight(800);
     gui1->setName("Switch");
     gui1->addLabel("Toggle Videos");
     gui1->addSpacer();
@@ -54,6 +54,12 @@ void ofApp::setup(){
     gui1->addSlider("scale", 0.0f, 2.0f, &sceneGraph->scale);
     gui1->addSlider("rotate", -90.0f, 90.0f, &sceneGraph->rotate);
    
+    gui1->addSpacer();
+
+    gui1->addSlider("brightness", 0.0f, 3.0f, &sceneGraph->brightness);
+    gui1->addSlider("red", 0.0f, 3.0f, &sceneGraph->r);
+    gui1->addSlider("green", 0.0f, 3.0f, &sceneGraph->g);
+    gui1->addSlider("blue", 0.0f, 3.0f, &sceneGraph->b);
     
     ofAddListener(gui1->newGUIEvent,this,&ofApp::guiEvent);
     
@@ -99,6 +105,31 @@ void ofApp::update(){
         if(addr == "/1/toggle1") {
             sceneGraph->prev();
             ((ofxUIRadio *) gui1->getWidget("RADIO VERTICAL"))->activateToggle(sceneGraph->names[sceneGraph->currentScene]);
+        } else if(addr == "/1/toggle2") {
+            sceneGraph->next();
+            ((ofxUIRadio *) gui1->getWidget("RADIO VERTICAL"))->activateToggle(sceneGraph->names[sceneGraph->currentScene]);
+        } else if(addr == "/3/xy1"){
+            float x = message.getArgAsFloat(0);
+            float y = message.getArgAsFloat(1);
+            sceneGraph->x = x * 2000 - 1000;
+            sceneGraph->y = y * 2000 - 1000;
+        } else if( addr == "/3/xy2"){
+            float x = message.getArgAsFloat(0);
+            float y = message.getArgAsFloat(1);
+            sceneGraph->scale = y * 2;
+            
+        } else if( addr == "/1/rotary1"){
+            float x = message.getArgAsFloat(0);
+            sceneGraph->r = x * 3;
+        } else if( addr == "/1/rotary2"){
+            float x = message.getArgAsFloat(0);
+            sceneGraph->g = x * 3;
+        } else if( addr == "/1/rotary3"){
+            float x = message.getArgAsFloat(0);
+            sceneGraph->b = x * 3;
+        } else if( addr == "/1/rotary4"){
+            float x = message.getArgAsFloat(0);
+            sceneGraph->brightness = x * 3;
         }
     }
     

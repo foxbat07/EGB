@@ -28,7 +28,7 @@ struct Scene {
     ~Scene(){}
     
     bool active;
-    float alpha;
+    float alpha, brightness=1, r=1, g=1, b=1;
     float time;
     
     float x=0, y=0;

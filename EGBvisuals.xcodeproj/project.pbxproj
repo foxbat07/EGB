@@ -225,6 +225,7 @@
 		3D040C571AB90AF8000DE472 /* BeachSunset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeachSunset.h; sourceTree = "<group>"; };
 		3D040C581AB90B0A000DE472 /* JungleEdge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JungleEdge.h; sourceTree = "<group>"; };
 		3D040C591AB90BA5000DE472 /* Black.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Black.h; sourceTree = "<group>"; };
+		3D23278F1ACA2FAE00805318 /* BrightnessShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrightnessShader.h; sourceTree = "<group>"; };
 		3D47482A1AAD41CA0046D8E0 /* test.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = test.frag; path = bin/data/test.frag; sourceTree = "<group>"; };
 		3D47482D1AAD63680046D8E0 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		3D47482E1AAD63830046D8E0 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -1113,6 +1114,7 @@
 				3D47483B1AAD7DCE0046D8E0 /* Scene1.h */,
 				3D47483C1AAD935C0046D8E0 /* BlendShader.h */,
 				3D47483D1AAFF66E0046D8E0 /* FluidStuff.h */,
+				3D23278F1ACA2FAE00805318 /* BrightnessShader.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

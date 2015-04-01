@@ -8,5 +8,5 @@
 
 #include "Scene.h"
 
-int Scene::width = 1280;
-int Scene::height = 800;
+int Scene::width = 1024;
+int Scene::height = 768;

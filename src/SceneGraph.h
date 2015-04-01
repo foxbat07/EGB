@@ -42,6 +42,7 @@ struct SceneGraph {
     float x = 0, y = 0;
     float scale = 1, rotate = 0;
     
+    float brightness = 1, r=1, g=1, b=1;
 
     
     SceneGraph(){
@@ -112,6 +113,11 @@ struct SceneGraph {
         s->y = y;
         s->scale = scale;
         s->rotate = rotate;
+        
+        s->brightness = brightness;
+        s->r = r;
+        s->g = g;
+        s->b = b;
         
         for( auto s : scenes){
             if( s->active ) s->update();
