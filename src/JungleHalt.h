@@ -14,7 +14,7 @@ struct JungleHalt : Scene {
     ofImage image;
     
     
-    JungleHAlt(){
+    JungleHalt(){
         image.loadImage("images/jungle2.jpg");
         scale = 1;
     }

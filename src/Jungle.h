@@ -28,6 +28,7 @@ struct Jungle : Scene {
         video.loadMovie( "video/jungle.mp4" );
         //        video.setAnchorPercent(0.5, 0.5);
         video.setVolume(0);
+        video.setSpeed(0.5);
         video.play();
         bright.allocate(width,height);
         //        glow.allocate(width,height);

@@ -17,6 +17,7 @@ struct DockAcension : Scene {
     
     DockAcension(){
         video.loadMovie( "video/moonloop.mov" );
+        image.loadImage("images/castle3.png");
         video.setVolume(0);
     }
     
@@ -40,6 +41,7 @@ struct DockAcension : Scene {
         ofScale(scale,scale);
         ofSetColor(255,255,255,alpha*255);
         video.draw(0,0);
+        image.draw(0,0);
         ofPopMatrix();
     }
     
