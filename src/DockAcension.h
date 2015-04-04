@@ -16,7 +16,7 @@ struct DockAcension : Scene {
     ofVideoPlayer video;
     
     DockAcension(){
-        video.loadMovie( "video/moon.mp4" );
+        video.loadMovie( "video/moonloop.mov" );
         video.setVolume(0);
     }
     

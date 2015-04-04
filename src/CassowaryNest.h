@@ -16,10 +16,17 @@ struct CassowaryNest : Scene {
     
     
     CassowaryNest(){
-        image.loadImage("images/marble.jpg");
-        scale = 0.5;
+        image.loadImage("images/jungle3.jpg");
+        scale = 1;
     }
     virtual void update(){
+        bright.brightness = brightness;
+        bright.r = r;
+        bright.g = g;
+        bright.b = b;
+        
+        (bright << image);
+        bright.update();
         image.update();
     }
     
@@ -29,7 +36,8 @@ struct CassowaryNest : Scene {
         ofRotate(rotate);
         ofScale(scale,scale);
         ofSetColor(255,255,255,alpha*255);
-        image.draw(0,0);
+//        image.draw(0,0);
+        bright.draw();
         ofPopMatrix();
     }
     

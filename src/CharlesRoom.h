@@ -11,35 +11,38 @@
 
 #include "Scene.h"
 
-#include "ofxMask.h"
+#include "BrightnessShader.h"
+
+#include "ofxGlow.h"
+#include "ofxBokeh.h"
+#include "ofxBloom.h"
 
 struct CharlesRoom : Scene {
     
-    ofImage wall, window;
-    ofImage mask;
+    ofImage image, wall;
     ofVideoPlayer video;
-    ofxMask maskpass;
+    ofxGlow glow;
+//    ofxBloom glow;
     
     CharlesRoom(){
-        video.loadMovie( "video/moon.mp4" );
-        video.setVolume(0);
+        scale=0.5;
+        image.loadImage("images/charlesroom.png");
+        wall.loadImage("images/charlesroomwall.png");
+        glow.allocate(width,height);
     }
     
-    virtual void activate(){
-        video.firstFrame();
-        video.play();
-        active = true;
-    }
-    virtual void deactivate(){
-        video.stop();
-        active = false;
-    }
     virtual void update(){
-//        window.update();
-        video.update();
-        //        maskpass.setTexture(mask.getTextureReference(), 0);
-        //        maskpass.setTexture(video.getTextureReference(),1);
-        //        maskpass.update();
+        bright.brightness = brightness;
+        bright.r = r;
+        bright.g = g;
+        bright.b = b;
+        
+        glow.setRadius(sin( ofGetElapsedTimef() )*70);
+        glow << (bright << image);
+        bright.update();
+        image.update();
+        glow.update();
+        wall.update();
     }
     
     virtual void draw(){
@@ -47,18 +50,16 @@ struct CharlesRoom : Scene {
         ofTranslate(x,y);
         ofRotate(rotate);
         ofScale(scale,scale);
-//        window.draw(x,y);
-//        maskpass.draw();
-        
-        
         ofSetColor(255,255,255,alpha*255);
-        video.draw(0,0);
+//        image.draw(0,0);
+//        bright.draw();
+        
+        glow.draw();
+
+//        wall.draw(0,0);
         ofPopMatrix();
     }
     
-    ofTexture& getTextureReference(){
-        return window.getTextureReference();
-    }
 };
 
 

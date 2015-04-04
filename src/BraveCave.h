@@ -24,10 +24,12 @@ struct BraveCave : Scene {
     ofxGlow glow;
 
     BraveCave(){
-        video.loadMovie( "video/bravecave.MOV" );
-        video.play();
+        video.loadMovie( "video/bravecave.mov" );
+//        video.setAnchorPercent(0.5, 0.5);
+        video.setVolume(0);
+//        video.play();
         bright.allocate(width,height);
-        glow.allocate(width,height);
+//        glow.allocate(width,height);
     }
     virtual void activate(){
         video.firstFrame();
@@ -54,7 +56,7 @@ struct BraveCave : Scene {
         ofPushMatrix();
         ofTranslate(x,y);
         ofRotate(rotate);
-        ofScale(scale,scale);
+        ofScale(scale*scalex,scale*scaley);
         ofSetColor(255,255,255,alpha*255);
 //        video.draw(0,0);
         bright.draw();

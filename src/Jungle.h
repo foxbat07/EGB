@@ -1,39 +1,37 @@
+
 //
-//  ThroneRoom.h
+//  Scene14dJungleCassowaryShadow.h
 //  EGBvisuals
 //
 //  Created by Tim Wood on 3/17/15.
 //
 //
 
-#ifndef EGBvisuals_ThroneRoom_h
-#define EGBvisuals_ThroneRoom_h
-
+#ifndef EGBvisuals_Scene14dJungleCassowaryShadow_h
+#define EGBvisuals_Scene14dJungleCassowaryShadow_h
 
 #include "Scene.h"
 
 #include "BrightnessShader.h"
-#include "ofxMask.h"
+#include "ofxGlow.h"
+#include "ofxBloom.h"
+#include "ofxBlur.h"
 
-struct ThroneRoom : Scene {
+struct Jungle : Scene {
     
-    ofImage image;
     ofVideoPlayer video;
-
-    BrightnessShader bright;
-    ofxMask maskpass;
     
-    ThroneRoom(){
-        scale = 1;
-//        image.loadImage("images/marblerod.jpg");
-        video.loadMovie( "video/throneroom.mov" );
+    BrightnessShader bright;
+    ofxGlow glow;
+    
+    Jungle(){
+        video.loadMovie( "video/jungle.mp4" );
         //        video.setAnchorPercent(0.5, 0.5);
         video.setVolume(0);
-        //        video.play();
+        video.play();
         bright.allocate(width,height);
-        maskpass.allocate(width,height);
+        //        glow.allocate(width,height);
     }
-    
     virtual void activate(){
         video.firstFrame();
         video.play();
@@ -43,34 +41,33 @@ struct ThroneRoom : Scene {
         video.stop();
         active = false;
     }
-    
     virtual void update(){
+        
         bright.brightness = brightness;
         bright.r = r;
         bright.g = g;
         bright.b = b;
-        
         (bright << video);
-//        image.update();
-        bright.update();
         video.update();
+        bright.update();
+        //      glow.update();
     }
     
     virtual void draw(){
         ofPushMatrix();
         ofTranslate(x,y);
         ofRotate(rotate);
-        ofScale(scale,scale);
+        ofScale(scale*scalex,scale*scaley);
         ofSetColor(255,255,255,alpha*255);
-//        video.draw(0,0);
+        //        video.draw(0,0);
         bright.draw();
+        //        glow.draw();
         ofPopMatrix();
     }
     
-//    ofTexture& getTextureReference(){
-//        return image.getTextureReference();
-//    }
+    ofTexture& getTextureReference(){
+        return video.getTextureReference();
+    }
 };
-
 
 #endif

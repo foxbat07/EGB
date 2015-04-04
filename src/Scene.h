@@ -12,6 +12,7 @@
 
 #include "ofMain.h"
 
+#include "BrightnessShader.h"
 
 struct Scene {
     
@@ -19,7 +20,7 @@ struct Scene {
     static int width;
     static int height;
     
-    Scene() : active(false) {}
+    Scene() : active(false) { bright.allocate(width,height); }
     virtual void update(){}
     virtual void draw(){}
     virtual void activate(){ active = true; }
@@ -27,12 +28,14 @@ struct Scene {
     virtual ofTexture& getTextureReference(){ ofTexture t; return t; } // hack
     ~Scene(){}
     
+    BrightnessShader bright;
+    
     bool active;
     float alpha, brightness=1, r=1, g=1, b=1;
     float time;
     
     float x=0, y=0;
-    float scale=1, rotate=0;
+    float scale=1, scalex=1, scaley=1, rotate=0;
     
 };
 

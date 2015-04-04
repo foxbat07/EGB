@@ -1,22 +1,21 @@
-
 //
-//  VillageSquare.h
+//  JungleHalt.h
 //  EGBvisuals
 //
-//  Created by Tim Wood on 3/17/15.
+//  Created by Tim Wood on 4/3/15.
 //
 //
 
-#ifndef EGBvisuals_VillageSquare_h
-#define EGBvisuals_VillageSquare_h
+#ifndef EGBvisuals_JungleHalt_h
+#define EGBvisuals_JungleHalt_h
 
-struct VillageSquare : Scene {
+struct JungleHalt : Scene {
     
     ofImage image;
     
     
-    VillageSquare(){
-        image.loadImage("images/village3.jpg");
+    JungleHAlt(){
+        image.loadImage("images/jungle2.jpg");
         scale = 1;
     }
     virtual void update(){
@@ -36,7 +35,7 @@ struct VillageSquare : Scene {
         ofRotate(rotate);
         ofScale(scale,scale);
         ofSetColor(255,255,255,alpha*255);
-//        image.draw(0,0);
+        //        image.draw(0,0);
         bright.draw();
         ofPopMatrix();
     }
@@ -45,5 +44,4 @@ struct VillageSquare : Scene {
         return image.getTextureReference();
     }
 };
-
 #endif

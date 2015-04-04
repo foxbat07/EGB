@@ -48,20 +48,33 @@ void ofApp::setup(){
     gui1->addSpacer();
     gui1->addRadio("RADIO VERTICAL", sceneGraph->names, OFX_UI_ORIENTATION_VERTICAL);
     
-    gui1->addSpacer();
-    gui1->addSlider("x", -1000.0f, 1000.0f, &sceneGraph->x);
-    gui1->addSlider("y", -1000.0f, 1000.0f, &sceneGraph->y);
-    gui1->addSlider("scale", 0.0f, 2.0f, &sceneGraph->scale);
-    gui1->addSlider("rotate", -90.0f, 90.0f, &sceneGraph->rotate);
+    gui2 = new ofxUISuperCanvas("PANEL 2: Transforms");
+    gui2->setPosition(210,0);
+    gui2->setHeight(800);
+    gui2->setName("Transform");
+    gui2->addLabel("pos color");
+    gui2->addSpacer();
+    gui2->addSlider("x", -2000.0f, 2000.0f, &sceneGraph->x);
+    gui2->addSlider("y", -2000.0f, 2000.0f, &sceneGraph->y);
+    gui2->addSlider("scale", 0, 2.0f, &sceneGraph->scale);
+    gui2->addSlider("scale-x", -1.0f, 1.0f, &sceneGraph->scalex);
+    gui2->addSlider("scale-y", -1.0f, 1.0f, &sceneGraph->scaley);
+    gui2->addSlider("rotate", -90.0f, 90.0f, &sceneGraph->rotate);
    
-    gui1->addSpacer();
+    gui2->addSpacer();
 
-    gui1->addSlider("brightness", 0.0f, 3.0f, &sceneGraph->brightness);
-    gui1->addSlider("red", 0.0f, 3.0f, &sceneGraph->r);
-    gui1->addSlider("green", 0.0f, 3.0f, &sceneGraph->g);
-    gui1->addSlider("blue", 0.0f, 3.0f, &sceneGraph->b);
+    gui2->addSlider("brightness", 0.0f, 3.0f, &sceneGraph->brightness);
+    gui2->addSlider("red", 0.0f, 3.0f, &sceneGraph->r);
+    gui2->addSlider("green", 0.0f, 3.0f, &sceneGraph->g);
+    gui2->addSlider("blue", 0.0f, 3.0f, &sceneGraph->b);
+    gui2->addSpacer();
+    std::vector<std::string> names;
+    names.push_back("save");
+    names.push_back("load");
+    gui2->addRadio("config", names, OFX_UI_ORIENTATION_HORIZONTAL);
     
     ofAddListener(gui1->newGUIEvent,this,&ofApp::guiEvent);
+    ofAddListener(gui2->newGUIEvent,this,&ofApp::guiEvent);
     
     receiver.setup(8000);
     
@@ -130,7 +143,13 @@ void ofApp::update(){
         } else if( addr == "/1/rotary4"){
             float x = message.getArgAsFloat(0);
             sceneGraph->brightness = x * 3;
+        
+        } else if( addr == "/1/push1"){
+            sceneGraph->saveSceneConfig();
+        } else if( addr == "/1/push3"){
+            sceneGraph->loadSceneConfig();
         }
+        
     }
     
     sceneGraph->update();
@@ -178,6 +197,11 @@ void ofApp::guiEvent(ofxUIEventArgs &e){
         ofxUIRadio *radio = (ofxUIRadio *) e.widget;
         sceneGraph->setScene(radio->getValue());
         cout << radio->getName() << " value: " << radio->getValue() << " active name: " << radio->getActiveName() << endl;
+    } else if( name == "config"){
+        ofxUIRadio *radio = (ofxUIRadio *) e.widget;
+        auto s = radio->getActiveName();
+        if(s == "save") sceneGraph->saveSceneConfig();
+        else sceneGraph->loadSceneConfig();
     }
     
 }
