@@ -71,6 +71,7 @@ void ofApp::setup(){
     std::vector<std::string> names;
     names.push_back("save");
     names.push_back("load");
+    names.push_back("smoke");
     gui2->addRadio("config", names, OFX_UI_ORIENTATION_HORIZONTAL);
     
     ofAddListener(gui1->newGUIEvent,this,&ofApp::guiEvent);
@@ -201,7 +202,8 @@ void ofApp::guiEvent(ofxUIEventArgs &e){
         ofxUIRadio *radio = (ofxUIRadio *) e.widget;
         auto s = radio->getActiveName();
         if(s == "save") sceneGraph->saveSceneConfig();
-        else sceneGraph->loadSceneConfig();
+        else if(s == "load") sceneGraph->loadSceneConfig();
+        else if(s == "smoke") sceneGraph->smoke = true;
     }
     
 }

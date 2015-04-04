@@ -23,6 +23,7 @@
 #include "BeachSunset.h"
 #include "JungleEdge.h"
 #include "JungleHalt.h"
+#include "Smoke.h"
 
 #include <vector>
 #include <map>
@@ -44,7 +45,9 @@ struct SceneGraph {
     float scale = 1, scalex=1, scaley=1, rotate = 0;
     
     float brightness = 1, r=1, g=1, b=1;
-
+    
+    Scene *smokeScene;
+    bool smoke = false;
     
     SceneGraph(){
         Scene *black = new Black();
@@ -53,11 +56,14 @@ struct SceneGraph {
         Scene *cave = new BraveCave();
         Scene *jungle = new Jungle();
         
+        smokeScene = new Smoke();
+        
         addScene("black", black);
         addScene("throne", throne);
         addScene("charles", new CharlesRoom());
         addScene("courtyard", new Courtyard());
         addScene("village", village);
+        addScene("smoke", new Smoke());
         addScene("throne2", throne);
         addScene("coastline", new RockyCoastline());
         addScene("throne3", throne);
@@ -73,6 +79,7 @@ struct SceneGraph {
         addScene("jungleEdge", new JungleEdge());
         addScene("throne4", throne);
         addScene("beachsunset", new BeachSunset());
+        
         
     };
     
@@ -153,15 +160,18 @@ struct SceneGraph {
         if( isTransitioning){
             currentTime += ofGetLastFrameTime();
             transition = currentTime / transitionLength;
+            order[prevScene]->alpha = 1.0 - transition;
+            order[currentScene]->alpha = transition;
         }
         if(transition >= 1){
             transition = 1;
+            order[prevScene]->alpha = 1.0 - transition;
+            order[currentScene]->alpha = transition;
             isTransitioning = false;
             if(order[prevScene] != order[currentScene]) order[prevScene]->deactivate();
         }
 //        std::cout << "transition: " << transition << std::endl;
-        order[prevScene]->alpha = 1.0 - transition;
-        order[currentScene]->alpha = transition;
+
         
         Scene *s = order[currentScene];
         s->x = x;
@@ -179,12 +189,14 @@ struct SceneGraph {
         for( auto s : scenes){
             if( s->active ) s->update();
         }
+        if(smoke) smokeScene->update();
         
     };
     void draw(){
         for( auto s : scenes){
             if( s->active ) s->draw();
         }
+        if( smoke) smokeScene->draw();
     };
     
 };

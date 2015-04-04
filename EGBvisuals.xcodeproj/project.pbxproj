@@ -227,6 +227,7 @@
 		3D040C591AB90BA5000DE472 /* Black.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Black.h; sourceTree = "<group>"; };
 		3D23278F1ACA2FAE00805318 /* BrightnessShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrightnessShader.h; sourceTree = "<group>"; };
 		3D2327901ACF776A00805318 /* JungleHalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JungleHalt.h; sourceTree = "<group>"; };
+		3D2327911ACFB5BF00805318 /* Smoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Smoke.h; sourceTree = "<group>"; };
 		3D47482A1AAD41CA0046D8E0 /* test.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = test.frag; path = bin/data/test.frag; sourceTree = "<group>"; };
 		3D47482D1AAD63680046D8E0 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		3D47482E1AAD63830046D8E0 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -609,6 +610,7 @@
 				3D040C581AB90B0A000DE472 /* JungleEdge.h */,
 				3D040C591AB90BA5000DE472 /* Black.h */,
 				3D2327901ACF776A00805318 /* JungleHalt.h */,
+				3D2327911ACFB5BF00805318 /* Smoke.h */,
 			);
 			name = scenes;
 			sourceTree = "<group>";
