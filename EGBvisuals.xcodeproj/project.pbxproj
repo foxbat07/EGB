@@ -228,6 +228,9 @@
 		3D23278F1ACA2FAE00805318 /* BrightnessShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrightnessShader.h; sourceTree = "<group>"; };
 		3D2327901ACF776A00805318 /* JungleHalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JungleHalt.h; sourceTree = "<group>"; };
 		3D2327911ACFB5BF00805318 /* Smoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Smoke.h; sourceTree = "<group>"; };
+		3D2327961AD243C100805318 /* DockAcensionRays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAcensionRays.h; sourceTree = "<group>"; };
+		3D2327971AD243CB00805318 /* GodRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodRay.h; sourceTree = "<group>"; };
+		3D2327981AD2466C00805318 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		3D47482A1AAD41CA0046D8E0 /* test.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = test.frag; path = bin/data/test.frag; sourceTree = "<group>"; };
 		3D47482D1AAD63680046D8E0 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		3D47482E1AAD63830046D8E0 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -597,6 +600,8 @@
 		3D040C4C1AB903A2000DE472 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3D2327981AD2466C00805318 /* Test.h */,
+				3D2327961AD243C100805318 /* DockAcensionRays.h */,
 				3D040C4B1AB9038B000DE472 /* ThroneRoom.h */,
 				3D040C4D1AB903C7000DE472 /* CharlesRoom.h */,
 				3D040C4F1AB908FF000DE472 /* Courtyard.h */,
@@ -1109,6 +1114,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				3D2327971AD243CB00805318 /* GodRay.h */,
 				3D040C4C1AB903A2000DE472 /* scenes */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,

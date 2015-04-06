@@ -18,6 +18,7 @@
 #include "RockyCoastline.h"
 #include "BraveCave.h"
 #include "DockAcension.h"
+#include "DockAcensionRays.h"
 #include "Palace.h"
 #include "Jungle.h"
 #include "CassowaryNest.h"
@@ -57,7 +58,9 @@ struct SceneGraph {
         Scene *cave = new BraveCave();
         Scene *jungle = new Jungle();
         
-        smokeScene = new Smoke();
+//        smokeScene = new Smoke();
+        
+        DockAcension *dock = new DockAcension();
         
         addScene("black", black);
         addScene("foyer", new Foyer());
@@ -76,6 +79,7 @@ struct SceneGraph {
         addScene("brave", cave);
         addScene("black4", black);   // intermission
         addScene("dock", new DockAcension());
+//        addScene("dock2", new DockAcension2(dock));
         addScene("brave2", cave);
         addScene("outer palace", new Palace());
         addScene("brave3", cave);
@@ -195,14 +199,14 @@ struct SceneGraph {
         for( auto s : scenes){
             if( s->active ) s->update();
         }
-        if(smoke) smokeScene->update();
+//        if(smoke) smokeScene->update();
         
     };
     void draw(){
         for( auto s : scenes){
             if( s->active ) s->draw();
         }
-        if( smoke) smokeScene->draw();
+//        if( smoke) smokeScene->draw();
     };
     
 };

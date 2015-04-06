@@ -1,5 +1,14 @@
 #include "ofApp.h"
 
+#include "GodRay.h"
+
+float GodRayShader::exposure = 0.1 / 100;
+float GodRayShader::decay = 1;
+float GodRayShader::density = 0.5;
+float GodRayShader::weight = 6.0;
+float GodRayShader::x=100;
+float GodRayShader::y=100;
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
