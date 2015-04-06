@@ -34,10 +34,10 @@ struct DockAcension : Scene {
         gui2->addSpacer();
         gui2->addSlider("x", 0.0f, 2000.0f, &GodRayShader::x);
         gui2->addSlider("y", 0.0f, 2000.0f, &GodRayShader::y);
-        gui2->addSlider("exposure", 0.0f, 1, &GodRayShader::exposure);
-        gui2->addSlider("decay", -1.0f, 2, &GodRayShader::decay);
+        gui2->addSlider("exposure", 0.0f, 0.3, &GodRayShader::exposure);
+        gui2->addSlider("decay", 0.0f, 1, &GodRayShader::decay);
         gui2->addSlider("density", 0.0f, 1, &GodRayShader::density);
-        gui2->addSlider("weight", 0.0f, 10, &GodRayShader::weight);
+        gui2->addSlider("weight", 0.0f, 2, &GodRayShader::weight);
         gui2->addToggle("ascend", &ascend);
         
         video.loadMovie( "video/moonloop.mov" );
@@ -49,12 +49,12 @@ struct DockAcension : Scene {
     
     virtual void activate(){
         GodRayShader::x = 660.2;
-        GodRayShader::y = 256.16;
-        GodRayShader::exposure = 0;
+        GodRayShader::y = 295.5; //256.16;
+        GodRayShader::exposure = 0.0;
 //        GodRayShader::exposure = .13;
         GodRayShader::decay = 0.98;
         GodRayShader::density = .19;
-        GodRayShader::weight = 0.39;
+        GodRayShader::weight = 0.42;
         video.firstFrame();
         video.play();
         active = true;
@@ -70,21 +70,20 @@ struct DockAcension : Scene {
             ascend = false;
             ascending = true;
             startTime = ofGetElapsedTimef();
-            GodRayShader::exposure = .13;
+            GodRayShader::exposure = .1;
         }
         if(ascending){
             t = ofGetElapsedTimef() - startTime;
             
-            if(t < 0.2){
-
-            } else if(t < 0.5){
-                float d = ((t - 0.2) / 0.3)* .81 + .19;
+            if(t < 0.1){
+                float d = (t / 0.1)* .81 + .19;
                 GodRayShader::density = d;
-            } else if(t < 0.7){
+            } else if(t < 0.8){
                 
-            } else if(t < 0.75){
-                float d = (1-((t - 0.7) / 0.05))*.11 + .19;
+            } else if(t < 1.2){
+                float d = (1-((t - 0.8) / 0.4));
                 GodRayShader::density = d;
+                GodRayShader::exposure = d*0.1;
             }
         }
     }

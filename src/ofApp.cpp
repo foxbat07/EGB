@@ -183,6 +183,9 @@ void ofApp::draw(){
     sceneGraph->draw();
     projector.end();
     
+    ofSetColor(0, 0, 200);
+    ofCircle(ofGetMouseX(), ofGetMouseY(), 20);
+    
 }
 
 void ofApp::loadSandboxShader(const char* path){
