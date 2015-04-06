@@ -19,9 +19,11 @@
 struct Smoke : Scene {
     
     ofVideoPlayer video;
-    
+    ofImage image;
     BrightnessShader bright;
     ofxGlow glow;
+    float smokeAlpha = 1;
+    float imageAlpha = 0.78;
     
     Smoke(){
         video.loadMovie( "video/smoke/smoke3.mp4" );
@@ -31,10 +33,12 @@ struct Smoke : Scene {
         //        video.play();
         bright.allocate(width,height);
         //        glow.allocate(width,height);
+        image.loadImage("images/village3.jpg");
     }
     virtual void activate(){
         video.firstFrame();
         video.play();
+        smokeAlpha = 1.0;
         active = true;
     }
     virtual void deactivate(){
@@ -45,7 +49,7 @@ struct Smoke : Scene {
         
         float pos = video.getPosition();
         if(pos > 0.75){
-            alpha = 1.0 - ((pos - 0.75) / 0.25);
+            smokeAlpha = 1.0 - ((pos - 0.75) / 0.25);
         }
         
         bright.brightness = brightness;
@@ -55,6 +59,7 @@ struct Smoke : Scene {
         (bright << video);
         video.update();
         bright.update();
+        image.update();
         //      glow.update();
     }
     
@@ -63,9 +68,16 @@ struct Smoke : Scene {
         ofTranslate(x,y);
         ofRotate(rotate);
         ofScale(scale*scalex,scale*scaley);
-        ofSetColor(255,255,255,alpha*255);
+        ofSetColor(255,255,255,smokeAlpha * alpha *255);
         //        video.draw(0,0);
+        ofEnableBlendMode(OF_BLENDMODE_ADD);
+        
+        
         bright.draw();
+        ofSetColor(255,255,255,imageAlpha * alpha *128);
+
+        image.draw(0,0);
+
         //        glow.draw();
         ofPopMatrix();
     }

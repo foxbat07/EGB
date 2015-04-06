@@ -10,6 +10,7 @@
 #define EGBvisuals_AllSets_h
 
 #include "Black.h"
+#include "Foyer.h"
 #include "ThroneRoom.h"
 #include "CharlesRoom.h"
 #include "Courtyard.h"
@@ -59,16 +60,21 @@ struct SceneGraph {
         smokeScene = new Smoke();
         
         addScene("black", black);
+        addScene("foyer", new Foyer());
         addScene("throne", throne);
         addScene("charles", new CharlesRoom());
         addScene("courtyard", new Courtyard());
         addScene("village", village);
         addScene("smoke", new Smoke());
+        addScene("black2", black);
         addScene("throne2", throne);
         addScene("coastline", new RockyCoastline());
         addScene("throne3", throne);
         addScene("village2", village);
+        addScene("black3", black);
+        addScene("throne4", throne); // ???
         addScene("brave", cave);
+        addScene("black4", black);   // intermission
         addScene("dock", new DockAcension());
         addScene("brave2", cave);
         addScene("outer palace", new Palace());
@@ -77,7 +83,7 @@ struct SceneGraph {
         addScene("jungleHalt", new JungleHalt());
         addScene("nest", new CassowaryNest());
         addScene("jungleEdge", new JungleEdge());
-        addScene("throne4", throne);
+        addScene("throne5", throne);
         addScene("beachsunset", new BeachSunset());
         
         
