@@ -158,7 +158,25 @@ void ofApp::update(){
             sceneGraph->saveSceneConfig();
         } else if( addr == "/1/push3"){
             sceneGraph->loadSceneConfig();
+        } else if( addr == "/1/ascend")
+        {
+            //sceneGraph->ascend = true;
+            sceneGraph->dock->ascend =true;
         }
+        else if( addr == "/1/toggle3")
+        {
+            //sceneGraph->ascend = true;
+            //sceneGraph->dock->smoke =true;
+            sceneGraph->smokeScene->smokeGo = true;
+        }
+        
+        else if( addr == "/1/toggle4")
+        {
+            //sceneGraph->ascend = true;
+            //sceneGraph->dock->smoke =true;
+            sceneGraph->dock->ascend = true;
+        }
+        
         
     }
     
@@ -185,6 +203,9 @@ void ofApp::draw(){
     
     ofSetColor(0, 0, 200);
     ofCircle(ofGetMouseX(), ofGetMouseY(), 20);
+    
+    ofSetColor(255, 255, 255);
+
     
 }
 
@@ -215,7 +236,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e){
         auto s = radio->getActiveName();
         if(s == "save") sceneGraph->saveSceneConfig();
         else if(s == "load") sceneGraph->loadSceneConfig();
-        else if(s == "smoke") sceneGraph->smoke = true;
+        else if(s == "smoke") sceneGraph->smokeScene->smokeGo = true;
     }
     
 }

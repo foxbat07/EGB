@@ -18,8 +18,8 @@ struct Palace : Scene {
     
     
     Palace(){
-        image.loadImage("images/marble.jpg");
-        scale = 0.5;
+        image.loadImage("images/highClareCastle.jpg");
+        scale = 1.2;
     }
     virtual void update(){
         image.update();

@@ -22,8 +22,9 @@ struct Smoke : Scene {
     ofImage image;
     BrightnessShader bright;
     ofxGlow glow;
-    float smokeAlpha = 1;
-    float imageAlpha = 0.78;
+    float smokeAlpha = 0;
+    float imageAlpha = 1;
+    bool smokeGo = false;
     
     Smoke(){
         video.loadMovie( "video/smoke/smoke3.mp4" );
@@ -36,9 +37,7 @@ struct Smoke : Scene {
         image.loadImage("images/village3.jpg");
     }
     virtual void activate(){
-        video.firstFrame();
-        video.play();
-        smokeAlpha = 1.0;
+        //video.firstFrame();
         active = true;
     }
     virtual void deactivate(){
@@ -46,8 +45,16 @@ struct Smoke : Scene {
         active = false;
     }
     virtual void update(){
-        
+        if(smokeGo){
+//            smokeAlpha = 1.0;
+            video.firstFrame();
+            video.play();
+            smokeGo = false;
+        }
         float pos = video.getPosition();
+        if(pos < 0.15){
+            smokeAlpha = ((pos) / 0.15);
+        }
         if(pos > 0.75){
             smokeAlpha = 1.0 - ((pos - 0.75) / 0.25);
         }

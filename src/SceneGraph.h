@@ -48,8 +48,12 @@ struct SceneGraph {
     
     float brightness = 1, r=1, g=1, b=1;
     
-    Scene *smokeScene;
-    bool smoke = false;
+    Smoke *smokeScene;
+    //bool smoke = false;
+    //bool ascend = false;
+    //bool ascending = false;
+    DockAcension * dock;
+
     
     SceneGraph(){
         Scene *black = new Black();
@@ -58,17 +62,17 @@ struct SceneGraph {
         Scene *cave = new BraveCave();
         Scene *jungle = new Jungle();
         
-//        smokeScene = new Smoke();
+        smokeScene = new Smoke();
         
-        DockAcension *dock = new DockAcension();
+        dock = new DockAcension();
         
         addScene("black", black);
         addScene("foyer", new Foyer());
         addScene("throne", throne);
         addScene("charles", new CharlesRoom());
         addScene("courtyard", new Courtyard());
-        addScene("village", village);
-        addScene("smoke", new Smoke());
+        addScene("village", smokeScene);
+        //addScene("smoke", new Smoke());
         addScene("black2", black);
         addScene("throne2", throne);
         addScene("coastline", new RockyCoastline());
@@ -83,12 +87,16 @@ struct SceneGraph {
         addScene("brave2", cave);
         addScene("outer palace", new Palace());
         addScene("brave3", cave);
+        addScene("black5", black);
         addScene("jungle", jungle);
         addScene("jungleHalt", new JungleHalt());
-        addScene("nest", new CassowaryNest());
+        addScene("nest", black);
         addScene("jungleEdge", new JungleEdge());
         addScene("throne5", throne);
+        addScene("black5", black);
         addScene("beachsunset", new BeachSunset());
+        addScene("black6", black);
+
         
         
     };

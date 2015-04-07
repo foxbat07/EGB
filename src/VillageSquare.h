@@ -16,7 +16,7 @@ struct VillageSquare : Scene {
     
     
     VillageSquare(){
-        image.loadImage("images/village3.jpg");
+        image.loadImage("images/village3v.jpg");
         scale = 1;
     }
     virtual void update(){

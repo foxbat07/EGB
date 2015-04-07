@@ -89,6 +89,8 @@ struct DockAcension : Scene {
     }
     
     virtual void draw(){
+        
+        ofEnableBlendMode(OF_BLENDMODE_ALPHA);
         ofPushMatrix();
         ofTranslate(x,y);
         ofRotate(rotate);
