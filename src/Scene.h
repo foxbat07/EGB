@@ -20,7 +20,7 @@ struct Scene {
     static int width;
     static int height;
     
-    Scene() : active(false) { bright.allocate(width,height); }
+    Scene() : active(false) { } //bright.allocate(width,height); }
     virtual void update(){}
     virtual void draw(){}
     virtual void activate(){ active = true; }
@@ -28,7 +28,7 @@ struct Scene {
     virtual ofTexture& getTextureReference(){ ofTexture t; return t; } // hack
     ~Scene(){}
     
-    BrightnessShader bright;
+    static BrightnessShader bright;
     
     bool active;
     float alpha, brightness=1, r=1, g=1, b=1;

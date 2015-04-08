@@ -60,8 +60,7 @@ struct SceneGraph {
         Scene *throne = new ThroneRoom();
         Scene *village = new VillageSquare();
         Scene *cave = new BraveCave();
-        Scene *jungle = new Jungle();
-        Scene *chicken = new Cassowarydance();
+        
         smokeScene = new Smoke();
         
         dock = new DockAcension();
@@ -92,15 +91,15 @@ struct SceneGraph {
         addScene("black5", black);
         addScene("brave4", cave);
 
-        addScene("jungle", jungle);
+        addScene("jungle", new Jungle());
         addScene("jungleHalt", new JungleHalt());
         addScene("nest", black);
         addScene("jungleEdge", new JungleEdge());
         addScene("throne5", throne);
-        addScene("cassowary dance", chicken);
-        addScene("black5", black);
-        addScene("beachsunset", new BeachSunset());
+        addScene("cassowary dance", new Cassowarydance());
         addScene("black6", black);
+        addScene("beachsunset", new BeachSunset());
+        addScene("black7", black);
 
         
         

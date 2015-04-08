@@ -1,6 +1,9 @@
 #include "ofApp.h"
 
 #include "GodRay.h"
+#include "BrightnessShader.h"
+
+BrightnessShader Scene::bright;
 
 float GodRayShader::exposure = 0.1 / 100;
 float GodRayShader::decay = 1;
@@ -82,6 +85,9 @@ void ofApp::setup(){
     names.push_back("load");
     names.push_back("smoke");
     gui2->addRadio("config", names, OFX_UI_ORIENTATION_HORIZONTAL);
+    gui2->addSpacer();
+    gui2->addSlider("smoke X", -500.0f, 500.0f, &sceneGraph->smokeScene->smokex);
+    gui2->addSlider("smoke Y", -500.0f, 500.0f, &sceneGraph->smokeScene->smokey);
     
     ofAddListener(gui1->newGUIEvent,this,&ofApp::guiEvent);
     ofAddListener(gui2->newGUIEvent,this,&ofApp::guiEvent);
