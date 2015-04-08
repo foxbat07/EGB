@@ -348,6 +348,7 @@
 		C161222F68D4F7CE28BC4F61 /* ofxUIBaseDraws.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUIBaseDraws.h; path = ../../../addons/ofxUI/src/ofxUIBaseDraws.h; sourceTree = SOURCE_ROOT; };
 		C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscReceiver.cpp; path = ../../../addons/ofxOsc/src/ofxOscReceiver.cpp; sourceTree = SOURCE_ROOT; };
 		C3036967D3EA0A46094A4F6C /* ftSubstractGradientShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ftSubstractGradientShader.h; path = ../../../addons/ofxFlowTools/src/fluid/ftSubstractGradientShader.h; sourceTree = SOURCE_ROOT; };
+		C305A1171AD4C0E0007DB542 /* cassowarydance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cassowarydance.h; sourceTree = "<group>"; };
 		C32832FD1AD20B270024659D /* Foyer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Foyer.h; sourceTree = "<group>"; };
 		C32D43891A8C736000E33A96 /* ofxBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBlend.h; sourceTree = "<group>"; };
 		C32D438A1A8C736000E33A96 /* ofxClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxClone.h; sourceTree = "<group>"; };
@@ -618,6 +619,7 @@
 				3D2327901ACF776A00805318 /* JungleHalt.h */,
 				3D2327911ACFB5BF00805318 /* Smoke.h */,
 				C32832FD1AD20B270024659D /* Foyer.h */,
+				C305A1171AD4C0E0007DB542 /* cassowarydance.h */,
 			);
 			name = scenes;
 			sourceTree = "<group>";

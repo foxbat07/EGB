@@ -26,7 +26,7 @@
 #include "JungleEdge.h"
 #include "JungleHalt.h"
 #include "Smoke.h"
-
+#include "cassowarydance.h"
 #include <vector>
 #include <map>
 
@@ -52,7 +52,7 @@ struct SceneGraph {
     //bool smoke = false;
     //bool ascend = false;
     //bool ascending = false;
-    DockAcension * dock;
+    DockAcension *dock;
 
     
     SceneGraph(){
@@ -61,7 +61,7 @@ struct SceneGraph {
         Scene *village = new VillageSquare();
         Scene *cave = new BraveCave();
         Scene *jungle = new Jungle();
-        
+        Scene *chicken = new Cassowarydance();
         smokeScene = new Smoke();
         
         dock = new DockAcension();
@@ -79,20 +79,25 @@ struct SceneGraph {
         addScene("throne3", throne);
         addScene("village2", village);
         addScene("black3", black);
-        addScene("throne4", throne); // ???
+        addScene("village3", village);
+        addScene("throne4", throne); // taken care of
+        addScene("black7", black);    // unsure of, with stage fade
         addScene("brave", cave);
         addScene("black4", black);   // intermission
-        addScene("dock", new DockAcension());
+        addScene("dock", dock );
 //        addScene("dock2", new DockAcension2(dock));
         addScene("brave2", cave);
         addScene("outer palace", new Palace());
         addScene("brave3", cave);
         addScene("black5", black);
+        addScene("brave4", cave);
+
         addScene("jungle", jungle);
         addScene("jungleHalt", new JungleHalt());
         addScene("nest", black);
         addScene("jungleEdge", new JungleEdge());
         addScene("throne5", throne);
+        addScene("cassowary dance", chicken);
         addScene("black5", black);
         addScene("beachsunset", new BeachSunset());
         addScene("black6", black);

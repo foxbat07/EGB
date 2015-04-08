@@ -158,23 +158,21 @@ void ofApp::update(){
             sceneGraph->saveSceneConfig();
         } else if( addr == "/1/push3"){
             sceneGraph->loadSceneConfig();
-        } else if( addr == "/1/ascend")
-        {
-            //sceneGraph->ascend = true;
-            sceneGraph->dock->ascend =true;
         }
-        else if( addr == "/1/toggle3")
+        else if( addr == "/1/smoke")
         {
             //sceneGraph->ascend = true;
             //sceneGraph->dock->smoke =true;
             sceneGraph->smokeScene->smokeGo = true;
+            cout << "SMSOKE!!"<< endl;
         }
         
-        else if( addr == "/1/toggle4")
+        else if( addr == "/1/ascend")
         {
             //sceneGraph->ascend = true;
             //sceneGraph->dock->smoke =true;
             sceneGraph->dock->ascend = true;
+            cout << "ASCEND!!!!"<< endl;
         }
         
         

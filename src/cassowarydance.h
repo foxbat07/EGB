@@ -1,14 +1,13 @@
-
 //
-//  Scene14dJungleCassowaryShadow.h
+//  cassowarydance.h
 //  EGBvisuals
 //
-//  Created by Tim Wood on 3/17/15.
+//  Created by Mohit Hingorani on 4/7/15.
 //
 //
 
-#ifndef EGBvisuals_Scene14dJungleCassowaryShadow_h
-#define EGBvisuals_Scene14dJungleCassowaryShadow_h
+#ifndef EGBvisuals_cassowarydance_h
+#define EGBvisuals_cassowarydance_h
 
 #include "Scene.h"
 
@@ -17,18 +16,19 @@
 #include "ofxBloom.h"
 #include "ofxBlur.h"
 
-struct Jungle : Scene {
+struct Cassowarydance : Scene {
     
     ofVideoPlayer video;
     
     BrightnessShader bright;
     ofxGlow glow;
     
-    Jungle(){
-        video.loadMovie( "video/jungle.mov" );
+    Cassowarydance(){
+        video.loadMovie( "video/jungle.mp4" );
         //        video.setAnchorPercent(0.5, 0.5);
         video.setVolume(0);
         video.setSpeed(0.5);
+        video.setPosition(0.5);
         video.play();
         bright.allocate(width,height);
         //        glow.allocate(width,height);
@@ -43,6 +43,9 @@ struct Jungle : Scene {
         active = false;
     }
     virtual void update(){
+        
+        if( video.getPosition()<0.5)
+            video.setPosition(0.5);
         
         bright.brightness = brightness;
         bright.r = r;
@@ -70,5 +73,6 @@ struct Jungle : Scene {
         return video.getTextureReference();
     }
 };
+
 
 #endif

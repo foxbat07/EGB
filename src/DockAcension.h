@@ -19,6 +19,7 @@ struct DockAcension : Scene {
     GodRayShader god;
     
     bool ascend = false;
+    bool guiascend = false;
     bool ascending = false;
     
     float startTime = 0;
@@ -38,7 +39,7 @@ struct DockAcension : Scene {
         gui2->addSlider("decay", 0.0f, 1, &GodRayShader::decay);
         gui2->addSlider("density", 0.0f, 1, &GodRayShader::density);
         gui2->addSlider("weight", 0.0f, 2, &GodRayShader::weight);
-        gui2->addToggle("ascend", &ascend);
+        gui2->addToggle("guiascend", &guiascend);
         
         video.loadMovie( "video/moonloop.mov" );
         image.loadImage("images/castle3.png");
@@ -48,6 +49,9 @@ struct DockAcension : Scene {
     }
     
     virtual void activate(){
+        guiascend = false;
+        ascend = false;
+        ascending = false;
         GodRayShader::x = 660.2;
         GodRayShader::y = 295.5; //256.16;
         GodRayShader::exposure = 0.0;
@@ -66,8 +70,9 @@ struct DockAcension : Scene {
     virtual void update(){
         god << light;
         video.update();
-        if(ascend){
+        if(ascend || guiascend){
             ascend = false;
+            guiascend = false;
             ascending = true;
             startTime = ofGetElapsedTimef();
             GodRayShader::exposure = .1;
