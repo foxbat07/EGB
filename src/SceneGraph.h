@@ -86,6 +86,7 @@ struct SceneGraph {
         addScene("dock", dock );
 //        addScene("dock2", new DockAcension2(dock));
         addScene("brave2", cave);
+        addScene("black8", black);
         addScene("outer palace", new Palace());
         addScene("brave3", cave);
         addScene("black5", black);

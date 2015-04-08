@@ -24,10 +24,12 @@ struct Cassowarydance : Scene {
     ofxGlow glow;
     
     Cassowarydance(){
-        video.loadMovie( "video/jungle.mp4" );
+        video.loadMovie( "video/chicken.mov" );
         //        video.setAnchorPercent(0.5, 0.5);
         video.setVolume(0);
         video.setSpeed(0.5);
+        video.setLoopState(OF_LOOP_PALINDROME);
+        
        // video.setPosition(0.5);
         video.play();
         bright.allocate(width,height);
