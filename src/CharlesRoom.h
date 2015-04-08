@@ -23,7 +23,7 @@ struct CharlesRoom : Scene {
     ofVideoPlayer video;
     ofxGlow glow;
 //    ofxBloom glow;
-    
+  
     CharlesRoom(){
         scale=0.5;
         image.loadImage("images/charlesroom.png");
@@ -32,6 +32,7 @@ struct CharlesRoom : Scene {
     }
     
     virtual void update(){
+        
         bright.brightness = brightness;
         bright.r = r;
         bright.g = g;

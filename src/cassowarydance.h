@@ -28,7 +28,7 @@ struct Cassowarydance : Scene {
         //        video.setAnchorPercent(0.5, 0.5);
         video.setVolume(0);
         video.setSpeed(0.5);
-        video.setPosition(0.5);
+       // video.setPosition(0.5);
         video.play();
         bright.allocate(width,height);
         //        glow.allocate(width,height);
@@ -44,8 +44,8 @@ struct Cassowarydance : Scene {
     }
     virtual void update(){
         
-        if( video.getPosition()<0.5)
-            video.setPosition(0.5);
+//        if( video.getPosition()<0.5)
+//            video.setPosition(0.5);
         
         bright.brightness = brightness;
         bright.r = r;
