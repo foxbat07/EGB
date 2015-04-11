@@ -80,16 +80,39 @@ struct DockAcension : Scene {
         if(ascending){
             t = ofGetElapsedTimef() - startTime;
             
+            // first flash
             if(t < 0.1){
-                float d = (t / 0.1)* .81 + .19;
+                float d = (t / 0.1 ) * .81 + .19;
                 GodRayShader::density = d;
-            } else if(t < 0.8){
+            } else if(t < 0.8 ){
                 
-            } else if(t < 1.2){
+            } else if(t < 1.2 ){
                 float d = (1-((t - 0.8) / 0.4));
                 GodRayShader::density = d;
                 GodRayShader::exposure = d*0.1;
             }
+            
+            // second flash
+            if( t < 1.3 ){
+                float d = (t / 1.3 ) * .81 + .19;
+                GodRayShader::density = d;
+            } else if( t < 2.0 ){
+                
+            } else if( t < 2.4 ){
+                float d = (1.0-((t - 2.0) / 0.4));
+                GodRayShader::density = d;
+                GodRayShader::exposure = d*0.1;
+            }
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
     

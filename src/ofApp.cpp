@@ -15,7 +15,7 @@ float GodRayShader::y=100;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetFrameRate(30);
     ofEnableAlphaBlending();
     ofSetLogLevel(OF_LOG_VERBOSE);
     

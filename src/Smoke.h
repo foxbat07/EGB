@@ -25,7 +25,7 @@ struct Smoke : Scene {
     float smokeAlpha = 0;
     float imageAlpha = 1;
     bool smokeGo = false;
-    float smokex=0,smokey=0;
+    float smokex= -179.80,smokey=46.80;
     
     Smoke(){
         video.loadMovie( "video/smoke/smoke3.mp4" );
@@ -84,6 +84,7 @@ struct Smoke : Scene {
         ofPushMatrix();
         ofTranslate(smokex,smokey);
         bright.draw();
+        
         ofPopMatrix();
         
         
@@ -95,6 +96,7 @@ struct Smoke : Scene {
 //        bright.draw();
 
         //        glow.draw();
+        ofEnableBlendMode(OF_BLENDMODE_ALPHA);
         ofPopMatrix();
     }
     

@@ -91,9 +91,9 @@ struct SceneGraph {
         addScene("brave3", cave);
         addScene("black5", black);
         addScene("brave4", cave);
-
+        addScene("black9", black);
         addScene("jungle", new Jungle());
-        addScene("jungleHalt", new JungleHalt());
+        //addScene("jungleHalt", new JungleHalt());
         addScene("nest", black);
         addScene("jungleEdge", new JungleEdge());
         addScene("throne5", throne);
